@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coches</title>
+  </head>
+  <body>
+    <div id="creacion">
+      <div id="coches"></div>
+      <form id="anyadircoche">
+        <input type="text" name="marca" id="marca" placeholder="Marca" />
+        <input type="text" name="color" id="color" placeholder="Color" />
+        <input type="date" name="fechamatricula" id="fechamatricula" />
+        <button type="submit">Crear</button>
+      </form>
+    </div>
+    <script type="module">
+      import * as gcw from "./js/gestionCochesWeb.js";
+      import * as gc from "./js/gestionCoches.js";
+
+      const coche1 = new gc.Coche("Mercedes", "negro", "2022-03-07");
+      const coche2 = new gc.Coche("Audi", "negro", "2022-03-07");
+      const coche3 = new gc.Coche("BMW", "negro", "2022-03-07");
+
+      gc.anyadirCoche(coche1);
+      gc.anyadirCoche(coche2);
+      gc.anyadirCoche(coche3);
+
+      const formulario = document.getElementById("anyadircoche");
+
+      formulario.addEventListener("submit", gcw.anyadirCocheWeb);
+
+      gcw.repintar();
+    </script>
+  </body>
+</html>
